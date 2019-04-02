@@ -96,7 +96,7 @@ function generatePBS() {
                 "EffortPonts=" + effortPoints.join()  + "<br>" +
                 "Rareness=" + $("#rareness").val() + "<br>" +
                 "Happiness=" + $("#happiness").val() + "<br>" +
-                "Moves=" +  listMoves.join().substring(0, str.length - 2)  + "<br>" +
+                "Moves=" +  listMoves.join().substring(0, listMoves.join().length - 2)  + "<br>" +
                 "Compatibility=" + $("#compatibility").val() + "<br>" +
                 "StepsToHatch=" + $("#steps-to-hatch").val() + "<br>" +
                 "Height=" + $("#height").val() + "<br>" +
@@ -106,7 +106,7 @@ function generatePBS() {
                 "Pokedex=" + $("#pokedex").val() + "<br>" +
                 "Abilities=" +  abilities.join()  + "<br>" +
                 "HiddenAbilities=" +  hiddenAbilities.join()  + "<br>" +
-                "EggMoves=" + listEggMoves.join().substring(0, str.length - 1);
+                "EggMoves=" + listEggMoves.join().substring(0, listEggMoves.join().length - 1);
 
     Swal.fire({
         type: 'success',
