@@ -62,7 +62,7 @@ function generatePBS() {
     hiddenAbilities = [$("#hidden-ability-1").val(), $("#hidden-ability-2").val(), $("#hidden-ability-3").val(), $("#hidden-ability-4").val()]
     hiddenAbilities =  hiddenAbilities.filter(x => x.trim());
     baseStats = [$("#health-points").val(), $("#atack").val(), $("#defense").val(), $("#speed").val(), $("#special-atack").val(), $("#special-defense").val()]
-    effortPoints = [$("#effort-health-points").val(), $("#effort-atack").val(), $("#effort-defense").val(), $("#effort-special-atack").val(), $("#effort-special-defense").val(), $("#effort-speed").val()]
+    effortPoints = [$("#effort-health-points").val(), $("#effort-atack").val(), $("#effort-defense").val(), $("#effort-speed").val(), $("#effort-special-atack").val(), $("#effort-special-defense").val()]
     listMoves = []
     listEggMoves = []
 
