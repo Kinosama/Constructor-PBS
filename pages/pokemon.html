@@ -1,0 +1,382 @@
+<!DOCTYPE htmL>
+
+<html>
+
+<head>
+
+    <!-- Charset -->
+    <meta charset="utf-8">
+
+    <!-- Page Info -->
+    <title>Constructor Pokemon PBS</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/standard.css"/>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="../scripts/pokemon.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- Page content -->
+    <div id="page-content" class="container">
+
+        <!-- Tittle -->
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h1> Constructor Pokemon PBS 0.1.0 </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="row mt-2">
+            <div class="col-12">
+
+                <!-- ID -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">ID :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="id" class="form-control" name="id" placeholder="Nombre del pokemon.">
+                    </div>
+                </div>
+
+                <!-- Name -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Nombre :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="name" class="form-control" name="name" placeholder="Nombre del pokemon.">
+                    </div>
+                </div>
+
+                <!-- Internal name -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Nombre interno :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="internal-name" class="form-control" name="internal-name" placeholder="Nombre interno del pokemon.">
+                    </div>
+                </div>
+
+                <!-- Types -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Tipos del pokemon :</label>
+
+                    <div class="col-md-4">
+                        <input type="text" id="primary-type" class="form-control" name="custom-primary-type" placeholder="Tipo primario.">
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" id="secondary-type" class="form-control" name="custom-secondary-type" placeholder="Tipo secundario.">
+                    </div>
+
+                </div>
+
+                <!-- Abilities -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Habilidades del pokemon :</label>
+
+                    <div class="col-md-4">
+                        <input type="text" id="ability-1" class="form-control" name="ability-1" placeholder="Habilidad 1.">
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" id="ability-2" class="form-control" name="ability-2" placeholder="Habilidad 2.">
+                    </div>
+
+                </div>
+
+                <!-- Hidden abilities -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Habilidades ocultas del pokemon :</label>
+
+                    <div class="col-md-2">
+                        <input type="text" id="hidden-ability-1" class="form-control" name="hidden-ability-1" placeholder="Habilidad.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="hidden-ability-2" class="form-control" name="hidden-ability-2" placeholder="Habilidad.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="hidden-ability-3" class="form-control" name="hidden-ability-5" placeholder="Habilidad.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="hidden-ability-4" class="form-control" name="hidden-ability-6" placeholder="Habilidad.">
+                    </div>
+
+                </div>
+
+                <!-- Base stats -->
+                <div class="row">
+                    <div class="col">
+                        Estadisticas base :
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <input type="text" id="health-points" class="form-control" name="health-points" placeholder="Puntos de salud.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="atack" class="form-control" name="atack" placeholder="Ataque.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="defense" class="form-control" name="defense" placeholder="Defensa.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="special-atack" class="form-control" name="special-atack" placeholder="Ataque especial.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="special-defense" class="form-control" name="special-defense" placeholder="Defensa espacial.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="speed" class="form-control" name="speed" placeholder="Velocidad.">
+                    </div>
+
+                </div>
+
+                <!-- Gender rate -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Ration de genero :</label>
+
+                    <div class="col-md-8">
+                        <select id="gender-rate" class="form-control">
+                            <option>AlwaysMale</option>
+                            <option>FemaleOneEighth</option>
+                            <option>Female25Percent</option>
+                            <option>Female75Percent</option>
+                            <option>FemaleOneEighth</option>
+                            <option>FemaleSevenEighths</option>
+                            <option>AlwaysFemale</option>
+                            <option>Genderless</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Growth rate -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Crecimiento del pokemon :</label>
+
+                    <div class="col-md-8">
+                        <select id="growth-rate" class="form-control">
+                            <option>Fast</option>
+                            <option>Medium</option>
+                            <option>Slow</option>
+                            <option>Parabolic</option>
+                            <option>Erratic</option>
+                            <option>Fluctuating</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- EXP Points -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Experiencia obtenida tras matarlo :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="exp-points" class="form-control" name="exp-points" placeholder="Puntos de experiencia.">
+                    </div>
+                </div>
+
+                <!-- Effort points -->
+                <div class="row">
+                    <div class="col">
+                        Puntos de esfuerzo optenidos tras matarlo :
+                    </div> 
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-health-points" class="form-control" name="effort-health-points" placeholder="Puntos de salud.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-atack" class="form-control" name="effort-atack" placeholder="Ataque.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-defense" class="form-control" name="effort-defense" placeholder="Defensa.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-special-atack" class="form-control" name="effort-special-atack" placeholder="Ataque especial.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-special-defense" class="form-control" name="effort-special-defense" placeholder="Defensa espacial.">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="effort-speed" class="form-control" name="effort-speed" placeholder="Velocidad.">
+                    </div>
+
+                </div>
+
+                <!-- Rareness -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Ratio de captura :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="rereness" class="form-control" name="rereness" placeholder="Ratio de captura.">
+                    </div>
+                </div>
+
+                <!-- Happiness -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Puntos de felicidad base :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="happiness" class="form-control" name="happiness" placeholder="Puntos de felicidad base.">
+                    </div>
+                </div>
+
+                <!-- Moves -->
+                <div class="row">
+                    <div class="col">
+                        Movimientos :
+                    </div>
+                </div>
+                
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div id="moves" class="col-10">
+                            
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button id="add-move" class="btn" onclick="addMove()" style="border-width: 0">Añadir movimiento.</button> 
+                    </div>       
+                </div>
+
+                <!-- Egg moves -->
+                <div class="row">
+                    <div class="col">
+                        Movimientos huevo :
+                    </div>
+                </div>
+                
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div id="egg-moves" class="col-10">
+                                
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button id="add-egg-move" class="btn" onclick="addEggMove()" style="border-width: 0">Añadir movimiento.</button>
+                    </div>      
+                </div>
+
+                <!-- Compatibility -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Grupo huevo :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="compatibility" class="form-control" name="compatibility" placeholder="Grupo huevo.">
+                    </div>
+                </div>
+
+                <!-- Steps to hatch -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Pasos para eclosionar :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="steps-to-hatch" class="form-control" name="steps-to-hatch" placeholder="Pasos para eclosionar.">
+                    </div>
+                </div>
+
+                <!-- Pokedex -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Descripción de la Pokédex :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="pokedex" class="form-control" name="pokedex" placeholder="Descripción.">
+                    </div>
+                </div>
+
+                <!-- Height -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Altura :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="height" class="form-control" name="height" placeholder="Altura.">
+                    </div>
+                </div>
+
+                <!-- Weight -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Peso :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="weight" class="form-control" name="weight" placeholder="Peso.">
+                    </div>
+                </div>
+
+                <!-- Kind -->
+                <div class="row">
+                    <label class="col-md-4 col-form-label">Especie :</label>
+                    <div class="col-md-8">
+                        <input type="text" id="kind" class="form-control" name="kind" placeholder="Especie.">
+                    </div>
+                </div>
+
+                <!-- Color -->
+                <div class="row">
+
+                    <label class="col-md-4 col-form-label">Ration de genero :</label>
+    
+                    <div class="col-md-8">
+                        <select id="color" class="form-control">
+                            <option>Black</option>
+                            <option>Blue</option>
+                            <option>Brown</option>
+                            <option>Gray</option>
+                            <option>Green</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                            <option>Red</option>
+                            <option>White</option>
+                            <option>Yellow</option>
+                        </select>
+                    </div>
+    
+                </div>
+
+                <!-- Generate -->
+                <div class="row">
+                    <div class="col">
+                        <button id="generate" class="btn" onclick="generatePBS()" style="border-width: 0">Generar PBS.</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
