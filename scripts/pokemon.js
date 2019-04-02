@@ -45,6 +45,16 @@ function addEggMove() {
  
 }
 
+Array.prototype.clean = function( deleteValue ) {
+    for ( var i = 0, j = this.length ; i < j; i++ ) {
+      if ( this[ i ] == deleteValue ) {
+        this.splice( i, 1 );
+        i--;
+      }
+    }
+    return this;
+  };
+
 function generatePBS() {
 
     abilities = [$("#ability-1").val(), $("#ability-2").val()]
@@ -65,14 +75,14 @@ function generatePBS() {
         listMoves.push($(level).val())
     }
 
-    listMoves =  listMoves.filter(x => x.trim());
+    listMoves = listMoves.clean("");
 
     for(inc = 0; inc <= eggMoves; inc++) {
         var name = "#name-egg-move-" + inc;
         listEggMoves.push($(name).val())
     }
 
-    listEggMoves =  listEggMoves.filter(x => x.trim());
+    listEggMoves.clean("");
 
     var pbs =   "[" + $("#id").val() + "]" + "<br>" +
                 "Name=" + $("#name").val() + "<br>" +
@@ -86,7 +96,7 @@ function generatePBS() {
                 "EffortPonts=" + effortPoints.join()  + "<br>" +
                 "Rareness=" + $("#rareness").val() + "<br>" +
                 "Happiness=" + $("#happiness").val() + "<br>" +
-                "Moves=" +  listMoves.join()  + "<br>" +
+                "Moves=" +  listMoves.join().substring(0, str.length - 2)  + "<br>" +
                 "Compatibility=" + $("#compatibility").val() + "<br>" +
                 "StepsToHatch=" + $("#steps-to-hatch").val() + "<br>" +
                 "Height=" + $("#height").val() + "<br>" +
@@ -96,7 +106,7 @@ function generatePBS() {
                 "Pokedex=" + $("#pokedex").val() + "<br>" +
                 "Abilities=" +  abilities.join()  + "<br>" +
                 "HiddenAbilities=" +  hiddenAbilities.join()  + "<br>" +
-                "EggMoves=" + listEggMoves.join();
+                "EggMoves=" + listEggMoves.join().substring(0, str.length - 1);
 
     Swal.fire({
         type: 'success',
