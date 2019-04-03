@@ -3,4 +3,4 @@ Esta herramienta permite generar datos en formato PBS para Pokemon Essentials de
 
 Enlace a la herramienta : https://gitcdn.xyz/repo/Kinosama/Constructor-PBS/master/index.html
 
-Ultima version : https://gitcdn.xyz/repo/Kinosama/Constructor-PBS/3881cee8b3e949e11bbfb9bfc8b2ef04c540a801/index.html
+Ultima version : https://gitcdn.xyz/repo/Kinosama/Constructor-PBS/d04b32beac66c1622ba2c4dd80d3311d72599492/index.html
