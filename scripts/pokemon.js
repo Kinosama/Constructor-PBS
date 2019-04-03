@@ -1,102 +1,213 @@
+// Variables
 var moves = 0
 var eggMoves = 0
+var evolutions = 0
+var regionalNumbers = 0
+var formNames = 0
 
-Array.prototype.clean = function (deleteValue) {
-    for (var i = 0, j = this.length; i < j; i++) {
-        if (this[i] == deleteValue) {
-            this.splice(i, 1);
-            i--;
-        }
-    }
-    return this;
-};
-
+// Functions
 function addMove() {
-
+    
     $("#moves").append(`
-        <!-- Move -->
-        <div id="move-${moves}" class="row">
-
-            <label class="col-md-6 col-form-label">Nombre interno del ataque :</label>
-
-            <div class="col-md-5">
-                <input type="text" id="name-move-${moves}" class="form-control" name="move-name" placeholder="Nombre interno del ataque.">
-            </div>
-
-            <div class="col-md-1">
-                <button id="remove-move-${moves}" class="btn btn-block" onclick="removeParent(this)" style="border-width: 0"><i class="fas fa-trash"></i></button>
-            </div>
-
-            <label class="col-md-6 col-form-label">Nivel al que lo aprende :</label>
-
-            <div class="col-md-5">
-                <input type="text" id="level-move-${moves}" class="form-control btn-block" name="move-level" placeholder="Nivel al que lo aprende.">
-            </div>
-
-        </div>`
+    <!-- Move ${moves} -->
+    <div id="move-${moves}" class="row">
+    
+    <div class="col-md-5">
+    <input type="text" id="name-move-${moves}" class="form-control" placeholder="Nombre interno del ataque.">
+    </div>
+    
+    <div class="col-md-5">
+    <input type="text" id="level-move-${moves}" class="form-control btn-block" placeholder="Nivel al que lo aprende.">
+    </div>
+    
+    <div class="col-md-2">
+    <button id="remove-move-${moves}" class="btn btn-block" onclick="removeParent(this)"><i class="fas fa-trash"></i></button>
+    </div>
+    
+    </div>`
     );
-
+    
     moves++;
-
+    
 }
 
 function addEggMove() {
-
+    
     $("#egg-moves").append(`
-        <!-- Move -->
-        <div id="egg-move-${eggMoves}" class="row">
-
-            <label class="col-md-6 col-form-label">Nombre interno del ataque :</label>
-
-            <div class="col-md-5">
-                <input type="text" id="name-egg-move-${eggMoves}" class="form-control" name="egg-move-name" placeholder="Nombre interno del ataque.">
-            </div>
-
-            <div class="col-md-1">
-                <button id="remove-move-${moves}" class="btn btn-block" onclick="removeParent(this)" style="border-width: 0"><i class="fas fa-trash"></i></button>
-            </div>
-            
-        </div>`
+    <!-- Egg move ${eggMoves} -->
+    <div id="egg-move-${eggMoves}" class="row">
+    
+    <div class="col-md-10">
+    <input type="text" id="name-egg-move-${eggMoves}" class="form-control" placeholder="Nombre interno del ataque.">
+    </div>
+    
+    <div class="col-md-2">
+    <button id="remove-move-${moves}" class="btn btn-block" onclick="removeParent(this)"><i class="fas fa-trash"></i></button>
+    </div>
+    
+    </div>`
     );
-
+    
     eggMoves++;
+    
+}
 
+function addRegionalNumber() {
+    
+    $("#regional-numbers").append(`
+    <!-- Regional number ${regionalNumbers} -->
+    <div id="regional-number-${regionalNumbers}" class="row">
+    
+    <div class="col-md-10">
+    <input type="text" id="number-regional-number-${regionalNumbers}" class="form-control" placeholder="Numero de la Pokédex regional.">
+    </div>
+    
+    <div class="col-md-2">
+    <button id="remove-regional-number-${regionalNumbers}" class="btn btn-block" onclick="removeParent(this)"><i class="fas fa-trash"></i></button>
+    </div>
+    
+    </div>`
+    );
+    
+    regionalNumbers++;
+    
+}
+
+function addEvolution() {
+    
+    $("#evolutions").append(`
+    <!-- Evolution ${evolutions} -->
+    <div id="evolution-${evolutions}" class="row">
+    
+    <div class="col-md-4">
+    <input type="text" id="name-evolution-${evolutions}" class="form-control" placeholder="Pokemon al que evoluciona.">
+    </div>
+    
+    <div class="col-md-3">
+    <input type="text" id="method-evolution-${evolutions}" class="form-control btn-block" placeholder="Metodo de evolución.">
+    </div>
+    
+    <div class="col-md-3">
+    <input type="text" id="condition-evolution-${evolutions}" class="form-control btn-block" placeholder="Condidicon de evolución.">
+    </div>
+    
+    <div class="col-md-2">
+    <button id="remove-evolution-${evolutions}" class="btn btn-block" onclick="removeParent(this)"><i class="fas fa-trash"></i></button>
+    </div>
+    
+    </div>`
+    );
+    
+    evolutions++;
+    
+}
+
+function addFormName() {
+    
+    $("#form-names").append(`
+    <!-- Form name ${formNames} -->
+    <div id="form-name-${formNames}" class="row">
+    
+    <div class="col-md-10">
+    <input type="text" id="form-name-${formNames}" class="form-control" placeholder="Nombre de la forma.">
+    </div>
+    
+    <div class="col-md-2">
+    <button id="remove-form-name-${formNames}" class="btn btn-block" onclick="removeParent(this)"><i class="fas fa-trash"></i></button>
+    </div>
+    
+    </div>`
+    );
+    
+    formNames++;
+    
 }
 
 function removeParent(element) {
     $("#" + element.id).parent().parent().remove();
 }
 
-function generatePBS() {
+function cleanArray(array) {
+    var newArray = []
+    for (var element in array) {
+        if (array[element] != null && array[element] != "") {
+            newArray.push(array[element])
+        }
+    }
+    return newArray
+}
 
-    abilities = [$("#ability-1").val(), $("#ability-2").val()]
-    abilities = abilities.clean("");
-    hiddenAbilities = [$("#hidden-ability-1").val(), $("#hidden-ability-2").val(), $("#hidden-ability-3").val(), $("#hidden-ability-4").val()]
-    hiddenAbilities = hiddenAbilities.clean("");
-    baseStats = [$("#health-points").val(), $("#atack").val(), $("#defense").val(), $("#speed").val(), $("#special-atack").val(), $("#special-defense").val()]
-    effortPoints = [$("#effort-health-points").val(), $("#effort-atack").val(), $("#effort-defense").val(), $("#effort-speed").val(), $("#effort-special-atack").val(), $("#effort-special-defense").val()]
-    listMoves = []
-    listEggMoves = []
-
-    console.log(moves)
+function validatePBS() {
+    
+    var baseStats = [$("#health-points").val(), $("#atack").val(), $("#defense").val(), $("#speed").val(), $("#special-atack").val(), $("#special-defense").val()];
+    var effortPoints = [$("#effort-health-points").val(), $("#effort-atack").val(), $("#effort-defense").val(), $("#effort-speed").val(), $("#effort-special-atack").val(), $("#effort-special-defense").val()];
+    
+    var listMoves = [];
     for (inc = 0; inc <= moves; inc++) {
-        var name = "#level-move-" + inc;
-        var level = "#name-move-" + inc
-        console.log(name + " " + level + " " + moves)
-        listMoves.push($(name).val())
-        listMoves.push($(level).val())
+        var name = "#name-move-" + inc;
+        var level = "#level-move-" + inc;
+        if (name != null && $(name).val() != "" && level != null && $(level).val() != "") {
+            listMoves.push($(level).val());
+            listMoves.push($(name).val());
+        }
     }
-
-    listMoves = listMoves.clean("");
-
-    for (inc = 0; inc <= eggMoves; inc++) {
-        var name = "#name-egg-move-" + inc;
-        listEggMoves.push($(name).val())
+    
+    var elements = [
+        $("#id").val(),
+        $("#name").val(),
+        $("#internal-name").val(),
+        $("#primary-type").val(),
+        cleanArray(baseStats).join(),
+        $("#gender-rate").val(),
+        $("#growth-rate").val(),
+        $("#exp-points").val(),
+        cleanArray(effortPoints).join(),
+        $("#rareness").val(),
+        $("#happiness").val(),
+        cleanArray(listMoves).join(),
+        $("#compatibility").val(),
+        $("#steps-to-hatch").val(),
+        $("#height").val(),
+        $("#weight").val(),
+        $("#color").val(),
+        $("#kind").val(),
+        $("#pokedex").val()
+    ];
+    
+    var valid = true;
+    for (var element in elements) {
+        if (elements[element] == null || elements[element] == "" || elements[element] == " ") {
+            valid = false;
+            Swal.fire({
+                type: 'error',
+                title: "Por favor, rellena los campos obligatorios." 
+            })
+        }
     }
+    
+    return valid;
+    
+}
 
-    listEggMoves.clean("");
-
-    var pbs = "[" + $("#id").val() + "]" + "<br>" +
+function generatePBS() {
+    
+    if (validatePBS()) {
+        
+        var baseStats = [$("#health-points").val(), $("#atack").val(), $("#defense").val(), $("#speed").val(), $("#special-atack").val(), $("#special-defense").val()];
+        var effortPoints = [$("#effort-health-points").val(), $("#effort-atack").val(), $("#effort-defense").val(), $("#effort-speed").val(), $("#effort-special-atack").val(), $("#effort-special-defense").val()];
+        var listMoves = [];
+        for (inc = 0; inc <= moves; inc++) {
+            var name = "#name-move-" + inc;
+            var level = "#level-move-" + inc;
+            if (name != null && $(name).val() != "" && level != null && $(level).val() != "") {
+                listMoves.push($(level).val());
+                listMoves.push($(name).val());
+            }
+        }
+        listMoves = cleanArray(listMoves);
+        
+        var pbs = 
+        "[" + $("#id").val() + "]" + "<br>" +
         "Name=" + $("#name").val() + "<br>" +
         "InternalName=" + $("#internal-name").val() + "<br>" +
         "Type1=" + $("#primary-type").val() + "<br>" +
@@ -108,22 +219,115 @@ function generatePBS() {
         "EffortPonts=" + effortPoints.join() + "<br>" +
         "Rareness=" + $("#rareness").val() + "<br>" +
         "Happiness=" + $("#happiness").val() + "<br>" +
-        "Moves=" + listMoves.join().substring(0, listMoves.join().length - 2) + "<br>" +
+        "Moves=" + cleanArray(listMoves).join() + "<br>" +
         "Compatibility=" + $("#compatibility").val() + "<br>" +
         "StepsToHatch=" + $("#steps-to-hatch").val() + "<br>" +
         "Height=" + $("#height").val() + "<br>" +
         "Weight=" + $("#weight").val() + "<br>" +
         "Color=" + $("#color").val() + "<br>" +
         "Kind=" + $("#kind").val() + "<br>" +
-        "Pokedex=" + $("#pokedex").val() + "<br>" +
-        "Abilities=" + abilities.join() + "<br>" +
-        "HiddenAbilities=" + hiddenAbilities.join() + "<br>" +
-        "EggMoves=" + listEggMoves.join().substring(0, listEggMoves.join().length - 1);
+        "Pokedex=" + $("#pokedex").val();
+        
+        var abilities = [$("#ability-1").val(), $("#ability-2").val()];
+        textAbilities = cleanArray(abilities).join();
+        if (textAbilities != "") {
+            pbs += "<br>" + "Abilities=" + textAbilities;
+            
+        }
+        
+        var hiddenAbilities = [$("#hidden-ability-1").val(), $("#hidden-ability-2").val(), $("#hidden-ability-3").val(), $("#hidden-ability-4").val()];
+        textHiddenAbilities = cleanArray(hiddenAbilities).join();
+        if (textHiddenAbilities != "") {
+            pbs += "<br>" + "HiddenAbilities=" + textHiddenAbilities;
+            
+        }
+        
+        var listEggMoves = [];
+        for (inc = 0; inc <= eggMoves; inc++) {
+            var name = "#name-egg-move-" + inc;
+            if (name != null && $(name).val() != "") {
+                listEggMoves.push($(name).val())
+            }
+        }
+        textEggMoves = cleanArray(listEggMoves).join();
+        if (textEggMoves != "") {
+            pbs += "<br>" + "EggMoves=" + textEggMoves;
+            
+        }
 
-    Swal.fire({
-        type: 'success',
-        title: 'PBS :',
-        html: pbs,
-    })
+        textHabitat = $("#habitat").val();
+        if (textHabitat != "") {
+            pbs += "<br>" + "Habitat=" + textHabitat;
+            
+        }
+        
+        var listRegionalNumbers = [];
+        for (inc = 0; inc <= regionalNumbers; inc++) {
+            var regionalNumber = "#number-regional-number-" + inc;
+            if (regionalNumber != null && $(regionalNumber).val() != "") {
+                listRegionalNumbers.push($(regionalNumber).val());
+            }
+        }
+        textRegionalNumbers = cleanArray(listRegionalNumbers).join();
+        if (textRegionalNumbers != "") {
+            pbs += "<br>" + "RegionalNumbers=" + textRegionalNumbers;
+            
+        }
 
+        textWildItemCommon = $("#wild-item-common").val();
+        if (textWildItemCommon != "") {
+            pbs += "<br>" + "WildItemCommon=" + textWildItemCommon;
+            
+        }
+
+        textWildItemUncommon = $("#wild-item-uncommon").val();
+        if (textWildItemUncommon != "") {
+            pbs += "<br>" + "WildItemUncommon=" + textWildItemUncommon;
+            
+        }
+
+        textWildItemRare = $("#wild-item-rare").val();
+        if (textWildItemRare != "") {
+            pbs += "<br>" + "WildItemRare=" + textWildItemRare;
+            
+        }
+        
+        var listEvoluions = [];
+        for (inc = 0; inc <= evolutions; inc++) {
+            var name = "#name-evolution-" + inc;
+            var method = "#method-evolution-" + inc;
+            var condition = "#condition-evolution-" + inc;
+            if (name != null && $(name).val() != "" && method != null && $(method).val() != "" && condition != null && $(condition).val() != "") {
+                listEvoluions.push($(name).val());
+                listEvoluions.push($(method).val());
+                listEvoluions.push($(condition).val());
+            }
+        }
+        textEvoluions = cleanArray(listEvoluions).join();
+        if (textEvoluions != "") {
+            pbs += "<br>" + "Evolutions=" + textEvoluions;
+            
+        }
+        
+        var listFormNames = [];
+        for (inc = 0; inc <= formNames; inc++) {
+            var name = "#fomr-name-" + inc;
+            if (name  != null && $(name ).val() != "") {
+                listFormNames.push($(name).val());
+            }
+        }
+        textFormNames = cleanArray(listFormNames).join();
+        if (textFormNames != "") {
+            pbs += "<br>" + "FormNames=" + textFormNames;
+            
+        }
+        
+        Swal.fire({
+            type: 'success',
+            title: 'PBS :',
+            html: pbs
+        });
+        
+    }
+    
 }
