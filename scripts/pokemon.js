@@ -4,6 +4,7 @@ var eggMoves = 0
 var evolutions = 0
 var regionalNumbers = 0
 var formNames = 0
+var hideShapeWarning = false
 
 // Functions
 function addMove() {
@@ -189,7 +190,7 @@ function validatePBS() {
     
 }
 
-function generatePBS() {
+async function generatePBS() {
     
     if (validatePBS()) {
         
@@ -207,7 +208,7 @@ function generatePBS() {
         listMoves = cleanArray(listMoves);
         
         var pbs = 
-        "[" + $("#id").val() + "]" + "<br>" +
+        "<div id='pbs'>[" + $("#id").val() + "]" + "<br>" +
         "Name=" + $("#name").val() + "<br>" +
         "InternalName=" + $("#internal-name").val() + "<br>" +
         "Type1=" + $("#primary-type").val() + "<br>" +
@@ -227,6 +228,26 @@ function generatePBS() {
         "Color=" + $("#color").val() + "<br>" +
         "Kind=" + $("#kind").val() + "<br>" +
         "Pokedex=" + $("#pokedex").val();
+        
+        textShape = $("#shape").val();
+        if (textShape != "") {
+            pbs += "<br>" + "Shape=" + textShape;
+        } else if (!hideShapeWarning) {
+            
+            const {value: accept} = await Swal.fire({
+                type: 'warning',
+                title: 'No has definido Shape.',
+                text: 'Este campo es necesario a partir de la version 17.',
+                input: 'checkbox',
+                inputValue: 0,
+                inputPlaceholder:'No volver a mostrar.',
+            })
+            
+            if (accept) {
+                hideShapeWarning = true;
+            }
+
+        }
         
         var abilities = [$("#ability-1").val(), $("#ability-2").val()];
         textAbilities = cleanArray(abilities).join();
@@ -254,7 +275,7 @@ function generatePBS() {
             pbs += "<br>" + "EggMoves=" + textEggMoves;
             
         }
-
+        
         textHabitat = $("#habitat").val();
         if (textHabitat != "") {
             pbs += "<br>" + "Habitat=" + textHabitat;
@@ -273,19 +294,19 @@ function generatePBS() {
             pbs += "<br>" + "RegionalNumbers=" + textRegionalNumbers;
             
         }
-
+        
         textWildItemCommon = $("#wild-item-common").val();
         if (textWildItemCommon != "") {
             pbs += "<br>" + "WildItemCommon=" + textWildItemCommon;
             
         }
-
+        
         textWildItemUncommon = $("#wild-item-uncommon").val();
         if (textWildItemUncommon != "") {
             pbs += "<br>" + "WildItemUncommon=" + textWildItemUncommon;
             
         }
-
+        
         textWildItemRare = $("#wild-item-rare").val();
         if (textWildItemRare != "") {
             pbs += "<br>" + "WildItemRare=" + textWildItemRare;
@@ -321,6 +342,8 @@ function generatePBS() {
             pbs += "<br>" + "FormNames=" + textFormNames;
             
         }
+
+        pbs += "</div>"
         
         Swal.fire({
             type: 'success',
